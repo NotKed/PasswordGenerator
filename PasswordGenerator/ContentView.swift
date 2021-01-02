@@ -19,14 +19,18 @@ struct ContentView: View {
         VStack() {
             HStack() {
                 Text(pass)
+                    .padding(20)
                     .font(.title)
-                    .padding()
+                    .scaledToFit()
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.05)
+                
                 if copyVisible {
                     Button(action: {
                         UIPasteboard.general.string = pass
                     }, label: {
                         Image(systemName: "doc.on.doc.fill")
-                    }).buttonStyle(PlainButtonStyle())
+                    })
                 }
             }
             Button(action: {
